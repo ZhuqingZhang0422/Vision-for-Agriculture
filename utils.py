@@ -3,6 +3,52 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import _pickle as pickle
+from collections import defaultdict
+from tqdm import tqdm
+from PIL import Image
+from numpy import asarray
+
+
+def load_agri_version(train_dir,labels_dir,name_save):
+    '''
+    Calculate classification rate according to the required 6 classes
+    Input: Train_directory ---- str
+           Labels_directory ---- str
+           Name_save ---- str
+    Output: Label data ---- dict[list]   
+    '''
+    labels_init = defaultdict(list)
+    # initialize label dictionary according to the training data
+    for f in [f for f in os.listdir(train_dir) if os.path.isfile(os.path.join(train_dir, f))]:
+        labels_init[f[0:-4]] = [0,0,0,0,0,0]
+    for ind, l in enumerate([f for f in os.listdir(labels_dir)][1:]):
+        direc = labels_dir + l
+        for file in tqdm([f for f in os.listdir(direc) if os.path.isfile(os.path.join(direc, f))]):
+            if file != ".DS_Store":
+                # Calculate coverage according to the corresponding label
+                rate = (np.array(Image.open(os.path.join(direc, file)).convert('L'))/255).mean()
+                labels_init[file[0:-4]][ind] = rate
+    # save dictionary for later use
+    filename = name_save + ".pkl"
+    f = open(filename,"wb")
+    pickle.dump(labels_init,f)
+    f.close()
+    return labels_init
+
+
+def load_agri_train(size_res,number):
+    '''
+    Load agricultural version data
+    '''
+    train_dir = "/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/train/images/rgb"
+    labels_dir = "/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/train/labels/"
+    y_train = utils.load_agri_version(train_dir,labels_dir,"y_train")
+    
+    train_val = "/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/val/images/rgb"
+    labels_val = "/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/val/labels/"
+    y_val = utils.load_agri_version(train_val,labels_val,"y_val")
+
+
 
 def get_CIFAR10_data(num_training = 49000, num_validation=1000, num_test=10000):
   #Load the CIFAR-10 dataset from disk and perform preprocessing to prepare
