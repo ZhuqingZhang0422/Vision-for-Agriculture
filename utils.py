@@ -7,6 +7,8 @@ from collections import defaultdict
 from tqdm import tqdm
 from PIL import Image
 from numpy import asarray
+from matplotlib import image as mpimg
+import matplotlib
 
 
 def load_agri_version(train_dir,labels_dir,name_save):
@@ -36,6 +38,104 @@ def load_agri_version(train_dir,labels_dir,name_save):
     return labels_init
 
 
+def image_argment_train(fig_id):
+    '''
+    Process single image in training set
+    Input: Image Id ---- str
+    Output: Processed image (Apply mask + boundry, stack NIR) ---- np.array
+    '''
+    rgb_path = '/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/train/images/rgb'
+    nir_path = '/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/train/images/nir'
+    bdry_path = '/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/train/boundaries'
+    mask_path = '/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/train/masks'
+    
+    rgb_img = mpimg.imread(os.path.join(rgb_path, fig_id + '.jpg'))/255
+    nir_img = mpimg.imread(os.path.join(nir_path, fig_id + '.jpg')).reshape((512,512,1))/255
+    bdry_img = mpimg.imread(os.path.join(bdry_path, fig_id + '.png'))
+    mask_img = mpimg.imread(os.path.join(mask_path, fig_id + '.png'))
+    #input_img = np.concatenate([rgb_img, nir_img], axis=2) / 255. # Concatenate the RGB and NIR
+    
+    # stack mask and boundry
+    final_mask = np.multiply(mask_img,bdry_img).reshape(512,512,1)
+    
+    # add nir channel to original data
+    input_img = np.concatenate([rgb_img, nir_img], axis=2) / 255. # Concatenate the RGB and NIR
+    
+    # apply mask and boundry to image
+    final_img_rgb = np.multiply(final_mask,rgb_img)
+    final_img_nir = np.multiply(final_mask,nir_img)
+
+    return final_img_rgb, final_img_nir
+
+def image_argment_val(fig_id):
+    '''
+    Process single image in validation set
+    Input: Image Id ---- str
+    Output: Processed image (Apply mask + boundry, stack NIR) ---- np.array
+    '''
+    rgb_path = '/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/val/images/rgb'
+    nir_path = '/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/val/images/nir'
+    bdry_path = '/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/val/boundaries'
+    mask_path = '/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/val/masks'
+    
+    rgb_img = mpimg.imread(os.path.join(rgb_path, fig_id + '.jpg'))/255
+    nir_img = mpimg.imread(os.path.join(nir_path, fig_id + '.jpg')).reshape((512,512,1))/255
+    bdry_img = mpimg.imread(os.path.join(bdry_path, fig_id + '.png'))
+    mask_img = mpimg.imread(os.path.join(mask_path, fig_id + '.png'))
+    #input_img = np.concatenate([rgb_img, nir_img], axis=2) / 255. # Concatenate the RGB and NIR
+    
+    # stack mask and boundry
+    final_mask = np.multiply(mask_img,bdry_img).reshape(512,512,1)
+    
+    # add nir channel to original data
+    input_img = np.concatenate([rgb_img, nir_img], axis=2) / 255. # Concatenate the RGB and NIR
+    
+    # apply mask and boundry to image
+    final_img_rgb = np.multiply(final_mask,rgb_img)
+    final_img_nir = np.multiply(final_mask,nir_img)
+
+    return final_img_rgb, final_img_nir
+
+
+def save_process_img_train (fig_id, path_tar_rgb, path_tar_nir, resize_x = 512, resize_y = 512):
+    
+    '''
+    Rescale the processed image and save to the required directory
+    Input: fig_id ---- str
+           path_tar_rgb ---- str
+           path_tar_nir ---- nir
+           resize_x ---- int
+           resize_y ---- int
+    '''
+    try:
+        path_tar_rgb = os.path.join(path_tar_rgb,str(resize_x) + "*" + str(resize_y))
+        os.makedirs(path_tar_rgb)
+    except:
+        pass
+            
+    try:
+        path_tar_nir = os.path.join(path_tar_nir,str(resize_x) + "*" + str(resize_y))
+        os.makedirs(path_tar_nir)
+    except:
+        pass
+    
+    # process rgb and nir data with mask and boundry
+    final_img_rgb, final_img_nir = image_argment_train(fig_id)
+    # resize and save rgb data
+    matplotlib.image.imsave(os.path.join(path_tar_rgb, fig_id + '.jpg'), final_img_rgb)
+    rgb_resize = Image.open(os.path.join(path_tar_rgb, fig_id + '.jpg')).resize((resize_x,resize_y))
+    rgb_resize.save(os.path.join(path_tar_rgb, fig_id + '.jpg'),quality = 90)
+    
+    # resize and save nir data
+    final_img_nir = np.concatenate([final_img_nir, final_img_nir, final_img_nir], axis=2)
+    matplotlib.image.imsave(os.path.join(path_tar_nir, fig_id + '.jpg'), final_img_nir)
+    nir_resize = Image.open(os.path.join(path_tar_nir, fig_id + '.jpg')).resize((resize_x,resize_y))
+    nir_resize.save(os.path.join(path_tar_nir, fig_id + '.jpg'),quality = 90)
+    
+    return rgb_resize, nir_resize
+
+
+
 def load_agri_train(size_res,number):
     '''
     Load agricultural version data
@@ -47,6 +147,26 @@ def load_agri_train(size_res,number):
     train_val = "/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/val/images/rgb"
     labels_val = "/Users/zhuqing/Documents/Github/Vision-for-Agriculture/Agriculture-Vision/val/labels/"
     y_val = utils.load_agri_version(train_val,labels_val,"y_val")
+    
+    
+def process_tarin(train_data, path_tar_rgb, path_tar_nir, resize_x = 30, resize_y = 30):
+    '''
+    Process training data, resize and save images of RGB and NIR channel
+    Input: train_data ---- database.pkl
+           path_tar_rgb ---- str
+           path_tar_nir ---- str
+           resize_x ---- int
+           resize_y ---- int
+    Output: None 
+    '''
+    dbfile = open(train_data, 'rb')     
+    db = pickle.load(dbfile)
+    for fig_id in tqdm(db):
+        save_process_img_train (fig_id, path_tar_rgb, path_tar_nir, resize_x, resize_y)
+    return None 
+
+
+
 
 
 
