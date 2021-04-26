@@ -19,6 +19,7 @@ def mklabel(myfig,label_paths):
     return label_imgs
 
 voc_root = '/work/07034/byz/maverick2/Term/Agriculture'
+
 def read_images(root=voc_root, train=True):
     label_names = ['cloud_shadow', 'double_plant', 'planter_skip', 'standing_water', 'waterway', 'weed_cluster']
     if train:
