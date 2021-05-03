@@ -1,0 +1,44 @@
+Read 12901 images
+Read 4431 images
+Epoch: 0, Train Loss: 0.66843, Train Acc: 0.40926, Train Mean IU: 0.27318,     Valid Loss: 0.62133, Valid Acc: 0.34747, Valid Mean IU: 0.27782 Time: 0:3:25
+Epoch: 1, Train Loss: 0.56215, Train Acc: 0.47953, Train Mean IU: 0.32095,     Valid Loss: 0.60319, Valid Acc: 0.42982, Valid Mean IU: 0.34170 Time: 0:3:0
+Epoch: 2, Train Loss: 0.53327, Train Acc: 0.50332, Train Mean IU: 0.33909,     Valid Loss: 0.56556, Valid Acc: 0.53343, Valid Mean IU: 0.24374 Time: 0:3:3
+Epoch: 3, Train Loss: 0.50683, Train Acc: 0.52548, Train Mean IU: 0.35422,     Valid Loss: 0.59292, Valid Acc: 0.51724, Valid Mean IU: 0.25463 Time: 0:2:59
+Epoch: 4, Train Loss: 0.49216, Train Acc: 0.53825, Train Mean IU: 0.36757,     Valid Loss: 0.56218, Valid Acc: 0.54509, Valid Mean IU: 0.26591 Time: 0:3:2
+Epoch: 5, Train Loss: 0.47894, Train Acc: 0.54608, Train Mean IU: 0.37499,     Valid Loss: 0.57978, Valid Acc: 0.52946, Valid Mean IU: 0.30491 Time: 0:3:3
+Epoch: 6, Train Loss: 0.47064, Train Acc: 0.55330, Train Mean IU: 0.38237,     Valid Loss: 0.54879, Valid Acc: 0.52955, Valid Mean IU: 0.28944 Time: 0:3:3
+Epoch: 7, Train Loss: 0.45989, Train Acc: 0.56352, Train Mean IU: 0.38782,     Valid Loss: 0.57129, Valid Acc: 0.55961, Valid Mean IU: 0.31494 Time: 0:3:4
+Epoch: 8, Train Loss: 0.45358, Train Acc: 0.57097, Train Mean IU: 0.39417,     Valid Loss: 0.52913, Valid Acc: 0.54481, Valid Mean IU: 0.24388 Time: 0:3:5
+Epoch: 9, Train Loss: 0.44421, Train Acc: 0.57616, Train Mean IU: 0.40079,     Valid Loss: 0.54772, Valid Acc: 0.53564, Valid Mean IU: 0.23272 Time: 0:3:3
+Epoch: 10, Train Loss: 0.44261, Train Acc: 0.57880, Train Mean IU: 0.40327,     Valid Loss: 0.52165, Valid Acc: 0.55948, Valid Mean IU: 0.24595 Time: 0:3:3
+Epoch: 11, Train Loss: 0.43260, Train Acc: 0.58455, Train Mean IU: 0.40776,     Valid Loss: 0.53539, Valid Acc: 0.55507, Valid Mean IU: 0.21281 Time: 0:3:1
+Epoch: 12, Train Loss: 0.42757, Train Acc: 0.58898, Train Mean IU: 0.41195,     Valid Loss: 0.56495, Valid Acc: 0.56128, Valid Mean IU: 0.21760 Time: 0:3:31
+Epoch: 13, Train Loss: 0.42063, Train Acc: 0.59661, Train Mean IU: 0.42014,     Valid Loss: 0.55350, Valid Acc: 0.55804, Valid Mean IU: 0.25899 Time: 0:3:50
+Epoch: 14, Train Loss: 0.41818, Train Acc: 0.59669, Train Mean IU: 0.41834,     Valid Loss: 0.53404, Valid Acc: 0.55198, Valid Mean IU: 0.24562 Time: 0:3:27
+Epoch: 15, Train Loss: 0.41651, Train Acc: 0.60280, Train Mean IU: 0.42514,     Valid Loss: 0.54910, Valid Acc: 0.56560, Valid Mean IU: 0.25382 Time: 0:3:5
+Epoch: 16, Train Loss: 0.40966, Train Acc: 0.60423, Train Mean IU: 0.42755,     Valid Loss: 0.52734, Valid Acc: 0.54928, Valid Mean IU: 0.24156 Time: 0:3:2
+Epoch: 17, Train Loss: 0.40512, Train Acc: 0.60975, Train Mean IU: 0.43049,     Valid Loss: 0.53529, Valid Acc: 0.54783, Valid Mean IU: 0.37565 Time: 0:3:3
+Epoch: 18, Train Loss: 0.40054, Train Acc: 0.61339, Train Mean IU: 0.43406,     Valid Loss: 0.52314, Valid Acc: 0.54895, Valid Mean IU: 0.24982 Time: 0:3:23
+Epoch: 19, Train Loss: 0.39657, Train Acc: 0.61295, Train Mean IU: 0.43458,     Valid Loss: 0.53908, Valid Acc: 0.55528, Valid Mean IU: 0.29065 Time: 0:3:3
+Epoch: 20, Train Loss: 0.39418, Train Acc: 0.61714, Train Mean IU: 0.43849,     Valid Loss: 0.52161, Valid Acc: 0.54822, Valid Mean IU: 0.25321 Time: 0:3:1
+Epoch: 21, Train Loss: 0.39066, Train Acc: 0.62159, Train Mean IU: 0.44208,     Valid Loss: 0.52877, Valid Acc: 0.55232, Valid Mean IU: 0.29507 Time: 0:3:2
+Epoch: 22, Train Loss: 0.38666, Train Acc: 0.62534, Train Mean IU: 0.45017,     Valid Loss: 0.55643, Valid Acc: 0.53899, Valid Mean IU: 0.28174 Time: 0:3:4
+Epoch: 23, Train Loss: 0.38444, Train Acc: 0.62739, Train Mean IU: 0.45083,     Valid Loss: 0.55338, Valid Acc: 0.56825, Valid Mean IU: 0.29626 Time: 0:3:4
+Epoch: 24, Train Loss: 0.38256, Train Acc: 0.62617, Train Mean IU: 0.45013,     Valid Loss: 0.52819, Valid Acc: 0.55785, Valid Mean IU: 0.30540 Time: 0:3:4
+Epoch: 25, Train Loss: 0.37981, Train Acc: 0.62725, Train Mean IU: 0.45067,     Valid Loss: 0.54413, Valid Acc: 0.53493, Valid Mean IU: 0.23391 Time: 0:3:0
+Epoch: 26, Train Loss: 0.37423, Train Acc: 0.63241, Train Mean IU: 0.45633,     Valid Loss: 0.56752, Valid Acc: 0.54953, Valid Mean IU: 0.21679 Time: 0:3:0
+Epoch: 27, Train Loss: 0.37505, Train Acc: 0.63459, Train Mean IU: 0.45663,     Valid Loss: 0.52217, Valid Acc: 0.53566, Valid Mean IU: 0.23997 Time: 0:3:4
+Epoch: 28, Train Loss: 0.37127, Train Acc: 0.63460, Train Mean IU: 0.45897,     Valid Loss: 0.53960, Valid Acc: 0.53435, Valid Mean IU: 0.21811 Time: 0:3:20
+Epoch: 29, Train Loss: 0.36584, Train Acc: 0.63758, Train Mean IU: 0.45917,     Valid Loss: 0.52753, Valid Acc: 0.53204, Valid Mean IU: 0.25376 Time: 0:3:3
+Epoch: 30, Train Loss: 0.36746, Train Acc: 0.63904, Train Mean IU: 0.46470,     Valid Loss: 0.50568, Valid Acc: 0.56023, Valid Mean IU: 0.30696 Time: 0:3:4
+Epoch: 31, Train Loss: 0.36221, Train Acc: 0.64274, Train Mean IU: 0.46542,     Valid Loss: 0.51691, Valid Acc: 0.49483, Valid Mean IU: 0.24349 Time: 0:3:4
+Epoch: 32, Train Loss: 0.36576, Train Acc: 0.64418, Train Mean IU: 0.46923,     Valid Loss: 0.51723, Valid Acc: 0.55316, Valid Mean IU: 0.22868 Time: 0:3:4
+Epoch: 33, Train Loss: 0.36028, Train Acc: 0.64345, Train Mean IU: 0.46893,     Valid Loss: 0.55500, Valid Acc: 0.55784, Valid Mean IU: 0.27097 Time: 0:3:4
+Epoch: 34, Train Loss: 0.35683, Train Acc: 0.64857, Train Mean IU: 0.47368,     Valid Loss: 0.53868, Valid Acc: 0.56071, Valid Mean IU: 0.26115 Time: 0:3:40
+Epoch: 35, Train Loss: 0.35753, Train Acc: 0.64760, Train Mean IU: 0.47153,     Valid Loss: 0.52362, Valid Acc: 0.54222, Valid Mean IU: 0.25041 Time: 0:3:46
+Epoch: 36, Train Loss: 0.35655, Train Acc: 0.64966, Train Mean IU: 0.47328,     Valid Loss: 0.54684, Valid Acc: 0.57491, Valid Mean IU: 0.33520 Time: 0:3:1
+Epoch: 37, Train Loss: 0.35048, Train Acc: 0.65082, Train Mean IU: 0.47668,     Valid Loss: 0.51750, Valid Acc: 0.55689, Valid Mean IU: 0.29891 Time: 0:3:1
+Epoch: 38, Train Loss: 0.35201, Train Acc: 0.65377, Train Mean IU: 0.47693,     Valid Loss: 0.55243, Valid Acc: 0.54647, Valid Mean IU: 0.25435 Time: 0:3:4
+Epoch: 39, Train Loss: 0.34831, Train Acc: 0.65596, Train Mean IU: 0.48065,     Valid Loss: 0.53557, Valid Acc: 0.53663, Valid Mean IU: 0.25542 Time: 0:3:4
+Epoch: 40, Train Loss: 0.34593, Train Acc: 0.65623, Train Mean IU: 0.48020,     Valid Loss: 0.53645, Valid Acc: 0.59026, Valid Mean IU: 0.27554 Time: 0:3:4
+Early stopping

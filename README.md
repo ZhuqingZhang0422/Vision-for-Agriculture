@@ -1,4 +1,24 @@
 # Vision-for-Agriculture
+
+
+## Code pieces
+
+Utils.py --- helper functions for data preprocess
+Preprocessor.ipynb --- preprocessor jupyter notebook for preprocessing
+label_process_train --- preprocess label data for training set
+label_process_val --- preprocess label data for val set
+seman7_1.py --- training pipeline 
+seman7predict.py --- code piece to generate prediction result
+Predict_colormap.ipynb --- Turn prediction result into color maps
+
+## Folder:
+
+Data Statistics Result --- Statistic info of training and val labels
+Poster Figures --- Visualization of training history
+Results Codalab --- mIoU results for test set from Codalab
+
+## General guidline
+
 Vision for Agriculture Segmenting and classifying aerial images of US farmland
 Dataset intro
 The challenge dataset contains 21,061 aerial farmland images captured throughout 2019 across the US. Each image consists of four 512x512 color channels, which are RGB and Near Infra-red (NIR). Each image also has a boundary map and a mask. The boundary map indicates the region of the farmland, and the mask indicates valid pixels in the image. Regions outside of either the boundary map or the mask are not evaluated.

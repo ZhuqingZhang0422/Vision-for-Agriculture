@@ -1,0 +1,8 @@
+miou: 0.372528
+background: 0.765465
+cloud_shadow: 0.179056
+double_plant: 0.201311
+planter_skip: 0.004748
+standing_water: 0.540442
+waterway: 0.483441
+weed_cluster: 0.433236
